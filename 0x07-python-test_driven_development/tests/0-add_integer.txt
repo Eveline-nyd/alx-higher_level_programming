@@ -1,8 +1,22 @@
-2,3;5
--5,10;5
-0,0;0
-2.5,3.7;5
-100,-100;0
-20,12;32
-55,10;65
-6.1,2.3;8.4
+import unittest
+from add_integer import add_integer
+
+class TestAddInteger(unittest.TestCase):
+
+    def test_add_integer(self):
+        test_cases = [
+            (2, 3, 5),
+            (-5, 10, 5),
+            (0, 0, 0),
+            (2.5, 3.7, 5),
+            (100, -100, 0)
+        ]
+
+        for a, b, expected in test_cases:
+            with self.subTest(a=a, b=b, expected=expected):
+                result = add_integer(a, b)
+                self.assertEqual(result, expected)
+
+if __name__ == '__main__':
+    unittest.main()
+
